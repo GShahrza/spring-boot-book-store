@@ -41,7 +41,7 @@ docker-compose down <- down docker compose
 
 ##### Get list book with author details :
 ```http
-  GET localhost:8080/users/details
+  GET localhost:8080/books/details
 ```
 | Header |  Description          | allowed|
 | :-------- | :--------------------- |:------|
@@ -67,7 +67,7 @@ Example: localhost:8080/books/rating?rating=7.5&?pageSize=2
 | `firstName` | `String` |  `All users`   |
 | `lastName` | `String` |  `All users`   |
 
-Example: localhost:8080/books/authors?firstName=X&?lastName=Y
+Example: localhost:8080/books/authors?firstName=X&lastName=Y
 
 ##### Book add to Publisher :
 ```http
