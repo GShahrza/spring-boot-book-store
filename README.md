@@ -57,7 +57,7 @@ docker-compose down <- down docker compose
 | `pageNo` | `Integer` |  `All users`   |
 | `pageSize` | `Integer` |  `All users`   |
 
-Example: localhost:8080/books/rating?rating=7.5&?pageSize=2
+Example: localhost:8080/books/rating?rating=7.5&pageNo=0&pageSize=1
 #### Get list book by author:
 ```http
   GET localhost:8080/books/authors
@@ -81,7 +81,7 @@ Example: localhost:8080/books/authors?firstName=X&lastName=Y
 | :----- |:--------------------- |:------|
 |`Authorization`|**Required**. Bearer tokenBody | `Only admin`|
 
-`Example : ` `RequestBody : ` {"isbn" : Long,"tittle" : "value","totalPages":Integer,"rating":double,"categories":[{"id":Long,"categoryName":"value"}]}
+`Example : ` `RequestBody : ` {"isbn" : Long,"tittle" : "value","totalPages":Integer,"rating":double,"categories":[{"id":Long}]}
 ##### Book update from publisher :
 ```http
   PUT localhost:8080/users/{id}
