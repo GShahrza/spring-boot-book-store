@@ -1,10 +1,16 @@
+## BUILD THE APPLICATION
+./gradlew build
+
+## BUILD AND UP Docker Compose
+docker-compose up --build
+docker-compose down <- down docker compose
 
 ## API Reference
 
 #### For Login
 
 ```http
-  POST localhost:8080/login
+  POST localhost:8080/auth/login
 ```
 
 | Parameter | Value     | password               |roles     |
