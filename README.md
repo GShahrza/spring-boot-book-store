@@ -10,7 +10,7 @@ docker-compose down <- down docker compose
 #### For Login
 
 ```http
-  POST localhost:8080/login
+  POST localhost:8080/auth/login
 ```
 
 | Parameter | Value     | password               |roles     |
