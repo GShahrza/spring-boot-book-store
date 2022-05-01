@@ -1,3 +1,9 @@
+## BUILD THE APPLICATION
+./gradlew build
+
+## BUILD AND UP Docker Compose
+docker-compose up --build
+docker-compose down <- down docker compose
 
 ## API Reference
 

@@ -1,6 +1,5 @@
 package az.unibank.springbootbookstore.dto.request;
 
-import az.unibank.springbootbookstore.dao.entity.ECategory;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,6 +11,5 @@ import lombok.experimental.FieldDefaults;
 public class CategoryRequest {
 
     Long id;
-    ECategory categoryName;
 
 }

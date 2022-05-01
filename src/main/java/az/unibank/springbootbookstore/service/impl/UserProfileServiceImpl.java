@@ -8,6 +8,7 @@ import az.unibank.springbootbookstore.dao.repository.UserProfileRepository;
 import az.unibank.springbootbookstore.dto.request.AddBookRequest;
 import az.unibank.springbootbookstore.dto.request.SignupRequest;
 import az.unibank.springbootbookstore.dto.request.UpdateBookRequest;
+import az.unibank.springbootbookstore.dto.response.UserProfileResponse;
 import az.unibank.springbootbookstore.exception.DuplicateUsernameException;
 import az.unibank.springbootbookstore.exception.UserNotFoundException;
 import az.unibank.springbootbookstore.service.UserProfileService;
@@ -16,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -44,6 +47,7 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .email(request.getEmail())
                 .username(request.getUsername())
                 .password(encoder.encode(request.getPassword()))
+                .roles(new HashSet<>())
                 .build();
         account.getRoles().add(Role.builder()
                 .id(2L)
@@ -98,6 +102,14 @@ public class UserProfileServiceImpl implements UserProfileService {
         userProfile.getBooks().add(bookRepository.save(book));
         userRepository.save(userProfile);
         return true;
+    }
+
+    @Override
+    public List<UserProfileResponse> getAll() {
+        return userRepository.findAll().stream()
+                .map(userProfile -> new UserProfileResponse(userProfile.getId(),userProfile.getFirstName(),
+                        userProfile.getLastName()))
+                .collect(Collectors.toList());
     }
 
     private UserProfile getUserById(Long id) {
